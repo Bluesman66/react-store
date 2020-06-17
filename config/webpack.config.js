@@ -297,6 +297,12 @@ module.exports = function(webpackEnv) {
           'react-dom$': 'react-dom/profiling',
           'scheduler/tracing': 'scheduler/tracing-profiling',
         }),
+        modules: path.resolve(__dirname, '../src/modules/'),
+        actions: path.resolve(__dirname, '../src/modules/actions/'),
+        api: path.resolve(__dirname, '../src/modules/api/'),
+        actionTypes: path.resolve(__dirname, '../src/modules/actionTypes'),
+        containers: path.resolve(__dirname, '../src/modules/containers/'),
+        reducers: path.resolve(__dirname, '../src/modules/reducers/'),
         ...(modules.webpackAliases || {}),
       },
       plugins: [
