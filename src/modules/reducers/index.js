@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
+import phonePage from 'reducers/phonePage';
 import phones from 'reducers/phones';
 import phonesPage from 'reducers/phonesPage';
 
@@ -8,4 +9,5 @@ export default (history) =>
 		router: connectRouter(history),
 		phones,
 		phonesPage,
+		phonePage,
 	});
