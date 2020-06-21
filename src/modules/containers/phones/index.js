@@ -1,14 +1,14 @@
 import * as R from 'ramda';
 
 import React, { useEffect } from 'react';
-import { fetchPhones, loadMorePhones } from 'actions';
+import { addPhoneToBasket, fetchPhones, loadMorePhones } from 'actions';
 
 import Layout from 'containers/layout';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPhones } from 'selectors';
 
-const Phones = ({ phones, fetchPhones, loadMorePhones }) => {
+const Phones = ({ phones, fetchPhones, loadMorePhones, addPhoneToBasket }) => {
 	useEffect(() => {
 		fetchPhones();
 	}, [fetchPhones]);
@@ -27,7 +27,12 @@ const Phones = ({ phones, fetchPhones, loadMorePhones }) => {
 						</h4>
 						<p>{shortDescription}</p>
 						<p className="itemButton">
-							<button className="btn btn-primary">Buy Now!</button>
+							<button
+								className="btn btn-primary"
+								onClick={() => addPhoneToBasket(phone.id)}
+							>
+								Buy Now!
+							</button>
 							<Link to={`/phones/${phone.id}`} className="btn btn-default">
 								More info
 							</Link>
@@ -64,6 +69,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
 	fetchPhones,
 	loadMorePhones,
+	addPhoneToBasket,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

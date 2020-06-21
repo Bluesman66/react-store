@@ -1,13 +1,14 @@
 import * as R from 'ramda';
 
+import { Link, useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
+import { addPhoneToBasket, fetchPhoneById } from 'actions';
 
+import BasketCart from 'components/basketCart';
 import { connect } from 'react-redux';
-import { fetchPhoneById } from 'actions';
 import { getPhoneById } from 'selectors';
-import { useParams } from 'react-router-dom';
 
-const Phone = ({ fetchPhoneById, phone }) => {
+const Phone = ({ phone, fetchPhoneById, addPhoneToBasket }) => {
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -56,7 +57,26 @@ const Phone = ({ fetchPhoneById, phone }) => {
 		</div>
 	);
 
-	const renderSidebar = () => {};
+	const renderSidebar = () => (
+		<div>
+			<p className="lead">Quick shop</p>
+			<BasketCart />
+			<div className="form-group">
+				<h1>{phone.name}</h1>
+				<h2>${phone.price}</h2>
+			</div>
+			<Link to="/" className="btn btn-info btn-block">
+				Back to store
+			</Link>
+			<button
+				type="button"
+				className="btn btn-success btn-block"
+				onClick={() => addPhoneToBasket(phone.id)}
+			>
+				Add to cart
+			</button>
+		</div>
+	);
 
 	return (
 		<div className="view-container">
@@ -78,6 +98,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
 	fetchPhoneById,
+	addPhoneToBasket,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phone);

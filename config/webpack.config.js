@@ -301,6 +301,7 @@ module.exports = function (webpackEnv) {
 				actions: path.resolve(__dirname, '../src/modules/actions/'),
 				api: path.resolve(__dirname, '../src/modules/api/'),
 				containers: path.resolve(__dirname, '../src/modules/containers/'),
+				components: path.resolve(__dirname, '../src/modules/components/'),
 				reducers: path.resolve(__dirname, '../src/modules/reducers/'),
 				actionTypes: path.resolve(__dirname, '../src/modules/actionTypes'),
 				selectors: path.resolve(__dirname, '../src/modules/selectors'),
