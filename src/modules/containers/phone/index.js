@@ -29,8 +29,6 @@ const Phone = ({ phone, fetchPhoneById, addPhoneToBasket }) => {
 			])
 		)(phone);
 
-		console.log('columns', columnField);
-
 		return columnField.map(([key, value]) => (
 			<div className="column" key={key}>
 				<div className="ab-details-title">

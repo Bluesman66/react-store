@@ -3,6 +3,7 @@ import * as R from 'ramda';
 import React, { useEffect } from 'react';
 import { addPhoneToBasket, fetchPhones, loadMorePhones } from 'actions';
 
+import AdaptiveTitle from 'components/adaptive-title';
 import Layout from 'containers/layout';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -23,7 +24,7 @@ const Phones = ({ phones, fetchPhones, loadMorePhones, addPhoneToBasket }) => {
 					<div className="caption">
 						<h4 className="pull-right">${phone.price}</h4>
 						<h4>
-							<Link to={`/phones/${phone.id}`}>{phone.name}</Link>
+							<Link to={`/phones/${phone.id}`}>{<AdaptiveTitle title={phone.name} />}</Link>
 						</h4>
 						<p>{shortDescription}</p>
 						<p className="itemButton">
