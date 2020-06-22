@@ -24,7 +24,9 @@ const Phones = ({ phones, fetchPhones, loadMorePhones, addPhoneToBasket }) => {
 					<div className="caption">
 						<h4 className="pull-right">${phone.price}</h4>
 						<h4>
-							<Link to={`/phones/${phone.id}`}>{<AdaptiveTitle title={phone.name} />}</Link>
+							<Link to={`/phones/${phone.id}`}>
+								{<AdaptiveTitle title={phone.name} />}
+							</Link>
 						</h4>
 						<p>{shortDescription}</p>
 						<p className="itemButton">

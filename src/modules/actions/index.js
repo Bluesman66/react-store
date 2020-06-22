@@ -9,6 +9,7 @@ import {
 	LOAD_MORE_PHONES_FAILURE,
 	LOAD_MORE_PHONES_START,
 	LOAD_MORE_PHONES_SUCCESS,
+	SEARCH_PHONE,
 } from 'actionTypes';
 import {
 	fetchPhoneById as fetchPhoneByIdApi,
@@ -74,5 +75,12 @@ export const addPhoneToBasket = (id) => (dispatch) => {
 	dispatch({
 		type: ADD_PHONE_TO_BASKET,
 		payload: id,
+	});
+};
+
+export const searchPhone = (text) => (dispatch) => {
+	dispatch({
+		type: SEARCH_PHONE,
+		payload: text,
 	});
 };

@@ -1,5 +1,5 @@
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { applyMiddleware, compose, createStore } from 'redux';
 
