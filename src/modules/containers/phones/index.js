@@ -1,7 +1,12 @@
 import * as R from 'ramda';
 
 import React, { useEffect } from 'react';
-import { addPhoneToBasket, fetchPhones, loadMorePhones } from 'actions';
+import {
+	addPhoneToBasket,
+	fetchCategories,
+	fetchPhones,
+	loadMorePhones,
+} from 'actions';
 
 import AdaptiveTitle from 'components/adaptive-title';
 import Layout from 'containers/layout';
@@ -9,10 +14,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPhones } from 'selectors';
 
-const Phones = ({ phones, fetchPhones, loadMorePhones, addPhoneToBasket }) => {
+const Phones = ({
+	phones,
+	fetchPhones,
+	loadMorePhones,
+	addPhoneToBasket,
+	fetchCategories,
+}) => {
 	useEffect(() => {
 		fetchPhones();
-	}, [fetchPhones]);
+		fetchCategories();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	const renderPhone = (phone, index) => {
 		const shortDescription = `${R.take(60, phone.description)}...`;
@@ -73,6 +86,7 @@ const mapDispatchToProps = {
 	fetchPhones,
 	loadMorePhones,
 	addPhoneToBasket,
+	fetchCategories,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

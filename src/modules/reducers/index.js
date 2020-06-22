@@ -1,4 +1,5 @@
 import basket from 'reducers/basket';
+import categories from 'reducers/categories';
 import { combineReducers } from 'redux';
 import phonePage from 'reducers/phonePage';
 import phones from 'reducers/phones';
@@ -9,4 +10,5 @@ export default combineReducers({
 	phonesPage,
 	phonePage,
 	basket,
+	categories,
 });
