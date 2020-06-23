@@ -79,8 +79,8 @@ const Phones = ({
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  phones: getPhones(state, ownProps)
-})
+	phones: getPhones(state, ownProps),
+});
 
 const mapDispatchToProps = {
 	fetchPhones,
