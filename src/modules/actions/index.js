@@ -1,5 +1,6 @@
 import {
 	ADD_PHONE_TO_BASKET,
+	CLEAN_BASKET,
 	FETCH_CATEGORIES_FAILURE,
 	FETCH_CATEGORIES_START,
 	FETCH_CATEGORIES_SUCCESS,
@@ -12,6 +13,7 @@ import {
 	LOAD_MORE_PHONES_FAILURE,
 	LOAD_MORE_PHONES_START,
 	LOAD_MORE_PHONES_SUCCESS,
+	REMOVE_PHONE_FROM_BASKET,
 	SEARCH_PHONE,
 } from 'actionTypes';
 import {
@@ -104,4 +106,21 @@ export const fetchCategories = () => async (dispatch) => {
 			error: true,
 		});
 	}
+};
+
+export const removePhoneFromBasket = (id) => async (dispatch) => {
+	dispatch({
+		type: REMOVE_PHONE_FROM_BASKET,
+		payload: id,
+	});
+};
+
+export const cleanBasket = () => async (dispatch) => {
+	dispatch({
+		type: CLEAN_BASKET,
+	});
+};
+
+export const basketCheckout = (phones) => () => {
+	alert(JSON.stringify(phones));
 };
